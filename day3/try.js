@@ -54,5 +54,5 @@ async function enrichmentclass(){
     catch(err){
         console.log(err);
     }
-}
+}; 
 enrichmentclass

@@ -1,0 +1,104 @@
+{
+  "users": [
+    {
+      "name": "Khushi Shrestha",
+      "age": 18,
+      "email": "sthkhushi@gmail.com"
+    },
+    {
+      "name": "Aayush Sharma",
+      "age": 19,
+      "email": "aayushsharma19@gmail.com"
+    },
+    {
+      "name": "Pratiksha Rai",
+      "age": 20,
+      "email": "pratiksha.rai20@yahoo.com"
+    },
+    {
+      "name": "Suman Karki",
+      "age": 21,
+      "email": "suman.karki21@outlook.com"
+    },
+    {
+      "name": "Bhawana Basnet",
+      "age": 18,
+      "email": "bhawanab18@gmail.com"
+    },
+    {
+      "name": "Niraj Bhandari",
+      "age": 22,
+      "email": "nirajbhandari22@gmail.com"
+    },
+    {
+      "name": "Anisha Maharjan",
+      "age": 19,
+      "email": "anisha.maharjan19@hotmail.com"
+    },
+    {
+      "name": "Roshan Thapa",
+      "age": 20,
+      "email": "roshanthapa20@gmail.com"
+    },
+    {
+      "name": "Sneha Shakya",
+      "age": 21,
+      "email": "sneha.shakya21@gmail.com"
+    },
+    {
+      "name": "Bikash Tamang",
+      "age": 23,
+      "email": "bikashtamang23@yahoo.com"
+    },
+    {
+      "name": "Manisha Shrestha",
+      "age": 20,
+      "email": "manishashrestha20@gmail.com"
+    },
+    {
+      "name": "Pramesh Adhikari",
+      "age": 19,
+      "email": "pramesh.adhikari19@gmail.com"
+    },
+    {
+      "name": "Supriya Lama",
+      "age": 22,
+      "email": "supriyalama22@gmail.com"
+    },
+    {
+      "name": "Bibek Kunwar",
+      "age": 21,
+      "email": "bibekkunwar21@gmail.com"
+    },
+    {
+      "name": "Aarati KC",
+      "age": 18,
+      "email": "aaratikc18@gmail.com"
+    },
+    {
+      "name": "Ritesh Neupane",
+      "age": 20,
+      "email": "riteshneupane20@gmail.com"
+    },
+    {
+      "name": "Nisha Poudel",
+      "age": 19,
+      "email": "nishapoudel19@gmail.com"
+    },
+    {
+      "name": "Dipesh Shahi",
+      "age": 22,
+      "email": "dipeshshahi22@gmail.com"
+    },
+    {
+      "name": "Kritika Thapa",
+      "age": 20,
+      "email": "kritikathapa20@gmail.com"
+    },
+    {
+      "name": "Rojan Limbu",
+      "age": 21,
+      "email": "rojanlimbu21@gmail.com"
+    }
+  ]
+}

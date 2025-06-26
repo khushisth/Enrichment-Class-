@@ -1,4 +1,4 @@
-//cerate objects like user details
+//create objects like user details
 let details={
     firstname:"khushi",
     lastname:"shrestha",
@@ -29,3 +29,9 @@ async function checkauthentication(){
 }
 
 checkauthentication();
+
+// fetch("user.json")
+// .then(response=>{
+//     console.log(response.json());
+// })
+// .then
