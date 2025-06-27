@@ -30,8 +30,13 @@ async function checkauthentication(){
 
 checkauthentication();
 
-// fetch("user.json")
-// .then(response=>{
-//     console.log(response.json());
-// })
-// .then
+fetch("https://jsonplaceholder.typicode.com/users/1")
+.then(response=>{
+    return response.json();
+})
+.then(data=>{
+    console.log (data);
+})
+.catch(error=>{
+    console.error("error fetching data:",error);
+})

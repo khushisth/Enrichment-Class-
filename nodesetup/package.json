@@ -1,0 +1,22 @@
+{
+  "name": "server",
+  "version": "1.0.0",
+  "description": "class learning.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/khushisth/Enrichment-Class-.git"
+  },
+  "author": "khushi",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/khushisth/Enrichment-Class-/issues"
+  },
+  "homepage": "https://github.com/khushisth/Enrichment-Class-#readme",
+  "dependencies": {
+    "express": "^5.1.0"
+  }
+}
