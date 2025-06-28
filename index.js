@@ -12,8 +12,8 @@ let person={
     age:"20",
     marks:{
         math:89,
-        nepali:70,
-        english:80
+        nepali:70, 
+        english:80 
     },
     subjects:{
         science:{
