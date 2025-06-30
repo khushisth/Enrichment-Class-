@@ -1,11 +1,20 @@
-const express = require('express');
-const app = express();
-const PORT = 9000;
+import mongoose from "mongoose";
+import dotenv from "dotenv";
 
-app.get('/',(req, res)=>{
-    res.send('hello, world!. I am khushi shrestha.');
-});
+dotenv.config();
+const connectDB = async () => {
+    try {
+        await mongoose.connect(process.env.MONGO_URI);
+    } catch (error) {
+        console.error(`MongoDB Connection Error: ${error.message}`);
+    }
+};
+connectDB()
+    .then(() => {
+        console.log("Database connection established successfully.");
+    })
+    .catch((error) => {
+        console.error("Database connection failed:", error);
+    });
 
-app.listen(PORT,()=>{
-    console.log(`Server is running at http://localhost:${PORT}`);
-});
+export default connectDB;
