@@ -2,24 +2,20 @@
 import dotenv from "dotenv";
 import mongoose from "mongoose";
 
+// mongodb+srv://khushi:khushi@enrichment.jneavqj.mongodb.net/?retryWrites=true&w=majority&appName=enrichment
+
 dotenv.config();
+
 const connectDB = async () => {
   try {
-    await mongoose.connect(process.env.MONGO_URI).then(
-      ()=>{
-        console.log("Khushi le connect garo hai");
-      }
-    );
+    const conn = await mongoose.connect("mongodb+srv://kushi:kushi@enrichment.jneavqj.mongodb.net/?retryWrites=true&w=majority&appName=enrichment", {
+    });
+
+    console.log(`MongoDB Connected: ${conn.connection.host}`);
   } catch (error) {
-    console.error(`MongoDB Connection Error: ${error.message}`);
+    console.error(error.message);
+    process.exit(1);
   }
-};
-connectDB()
-  .then(() => {
-    console.log("Database connection established successfully.");
-  })
-  .catch((error) => {
-    console.error("Database connection failed:", error);
-  });
+}
 
 export default connectDB;
