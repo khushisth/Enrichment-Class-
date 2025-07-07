@@ -25,6 +25,12 @@ const UserSchema = new mongoose.Schema(
             minlength: [6, "Password must be at least 6 characters long"],
             select: false,
         },
+        role:{
+            type:String,
+            enum:["HR","Employee","Admin"],
+            default:"Employee"
+        },
+        
         createdAt: {
             type: Date,
             default: Date.now,
