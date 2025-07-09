@@ -30,6 +30,9 @@ const UserSchema = new mongoose.Schema(
             enum:["HR","Employee","Admin"],
             default:"Employee"
         },
+        image:{
+            type:String
+        },
         
         createdAt: {
             type: Date,

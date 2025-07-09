@@ -1,8 +1,12 @@
 import bcrypt from "bcryptjs";
-import { User } from "../models/user.js";
+import { User } from "../models/User.js";
 import { response } from "express";
 
 export const createUser = async (req, res) => {
+  console.log(req.file);
+  const image=req.file.filename;
+  
+
   try {
     const { firstName, lastName, email, password } = req.body;
     if (firstName == "" || lastName == "" || email == "" || password == "") {
@@ -26,6 +30,7 @@ export const createUser = async (req, res) => {
       lastName,
       email,
       password: hashedPassword,
+      image
     });
     console.log(newUser);
     await newUser
@@ -33,7 +38,7 @@ export const createUser = async (req, res) => {
       .then(() => {
         return res.status(201).json({
           message: "User created successfully",
-          user: req.body,
+          user: newUser,
         });
       })
       .catch((error) => {
