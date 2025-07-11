@@ -1,51 +1,21 @@
-import mongoose from "mongoose";
+const mongoose = require("mongoose");
 
-const UserSchema = new mongoose.Schema(
-    {
-        firstName: {
-            type: String,
-            required: [true, "First name is required"],
-            trim: true,
-        },
-        lastName: {
-            type: String,
-            required: [true, "Last name is required"],
-            trim: true,
-        },
-        email: {
-            type: String,
-            required: [true, "Email is required"],
-            unique: true,
-            lowercase: true,
-            
-        },
-        password: {
-            type: String,
-            required: [true, "Password is required"],
-            minlength: [6, "Password must be at least 6 characters long"],
-            select: false,
-        },
-        role:{
-            type:String,
-            enum:["HR","Employee","Admin"],
-            default:"Employee"
-        },
-        image:{
-            type:String
-        },
-        
-        createdAt: {
-            type: Date,
-            default: Date.now,
-        },
-        updatedAt: {
-            type: Date,
-            default: Date.now,
-        },
-    },
-    {
-        timestamps: true,
-    }
-);
+const userSchema = new mongoose.Schema({
+  username: { type: String, required: true, unique: true },
+  email: { type: String, required: true, unique: true },
+  passwordHash: { type: String, required: true },
+  role: {
+    type: String,
+    enum: ["admin", "manager", "employee"],
+    required: true,
+  },
+  isActive: { type: Boolean, default: true },
+  isTempPassword: { type: Boolean, default: false },
+  tempPasswordExpiry: { type: Date },
+  requiresPasswordReset: { type: Boolean, default: false },
+  lastLogin: { type: Date },
+  createdAt: { type: Date, default: Date.now },
+  updatedAt: { type: Date, default: Date.now },
+});
 
-export const User = mongoose.model("User", UserSchema);
+module.exports = mongoose.model("User", userSchema);

@@ -1,36 +1,27 @@
 import mongoose from "mongoose";
-
-const EmployeeSchema = new mongoose.Schema(
-  {
-    firstName: {
-      type: String,
-      required: [true, "First name is required"],
-      trim: true,
-    },
-    lastName: {
-      type: String,
-      required: [true, "Last name is required"],
-      trim: true,
-    },
-    employeeID: {
-      type: String,
-      required: [true, "ID is required"],
-      unique: true,
-    },
-    salary: {
-      type: Number,
-      required: [true, "salary is required"],
-      select: false,
-    },
-    department: {
-      type: String,
-
-      enum: ["IT", "BBA", "Resource"],
-    },
+const employeeSchema = new mongoose.Schema({
+  userId: { type: mongoose.Schema.Types.ObjectId, ref: "User", required: true },
+  firstName: { type: String, required: true },
+  lastName: { type: String, required: true },
+  dateOfBirth: { type: Date },
+  gender: { type: String, enum: ["male", "female", "other"] },
+  contactNumber: { type: String },
+  address: { type: String },
+  hireDate: { type: Date },
+  departmentId: { type: mongoose.Schema.Types.ObjectId, ref: "Department" },
+  position: { type: String },
+  salary: { type: Number },
+  employmentType: {
+    type: String,
+    enum: ["full-time", "part-time", "contract"],
   },
-  {
-    timestamps: true,
-  }
-);
+  leaveBalance: {
+    annual: { type: Number, default: 0 },
+    sick: { type: Number, default: 0 },
+    number: { type: Number, default: 0 },
+  },
+  createdAt: { type: Date, default: Date.now },
+  updatedAt: { type: Date, default: Date.now },
+});
 
-export const Employee = mongoose.model("Employee", EmployeeSchema);
+module.exports = mongoose.model("Employee", employeeSchema);
