@@ -1,22 +1,20 @@
-import express from "express";
-import { login } from "../usercontroller/auth.controller.js";
+const express = require('express');
 const router = express.Router();
+const attendanceController = require('../controllers/attendanceController');
+const auth = require('../middlewares/auth');
 
+// List all attendance
+router.get('/', auth.isManagerOrAdmin, attendanceController.getAllAttendance);
 
-router.post("/login", login);
+// Get own attendance
+router.get('/my-attendance', auth.isAuthenticated, attendanceController.getMyAttendance);
 
+// Clock in
+router.post('/clock-in', auth.isAuthenticated, attendanceController.clockIn);
 
-export default router;
+// Clock out
+router.post('/clock-out', auth.isAuthenticated, attendanceController.clockOut);
 
-import express from 'express'
-import { createEmployee, deleteemployee,  getallemployee,  getemployeeByid,  updateemployee } from '../usercontroller/employeecontroller.js';
+module.exports = router;
 
-const router = express.Router();
-
-router.post('/addemployee',createEmployee)
-router.get('/getemployee',getallemployee)
-router.get('/employee/:employeeid',getemployeeByid)
-router.put('/employee/:employeeid',updateemployee)
-router.delete('/employee/:employeeid',deleteemployee)
-export default router;
  
