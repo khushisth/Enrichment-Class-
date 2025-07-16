@@ -1,9 +1,18 @@
-import express from "express";
-import { login } from "../usercontroller/auth.controller.js";
+const express = require('express');
 const router = express.Router();
+const authController = require('../controllers/authController');
+const authMiddleware = require('../middlewares/auth');
 
+// Register (Admin only)
+router.post('/register', authMiddleware.isAdmin, authController.registerUser);
 
-router.post("/login", login);
+// Login (Public)
+router.post('/login', authController.loginUser);
 
+// Change Password (Authenticated)
+router.post('/change-password', authMiddleware.isAuthenticated, authController.changePassword);
 
-export default router;
+// Get My User Info (Authenticated)
+router.get('/users/me', authMiddleware.isAuthenticated, authController.getCurrentUser);
+
+module.exports = router;

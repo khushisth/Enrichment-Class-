@@ -1,9 +1,18 @@
-import express from "express";
-import { login } from "../usercontroller/auth.controller.js";
+const express = require('express');
 const router = express.Router();
+const attendanceController = require('../controller/');
+const auth = require('../middlewares/auth.js');
 
+// List all attendance
+router.get('/', auth.isManagerOrAdmin, attendanceController.getAllAttendance);
 
-router.post("/login", login);
+// Get own attendance
+router.get('/my-attendance', auth.isAuthenticated, attendanceController.getMyAttendance);
 
+// Clock in
+router.post('/clock-in', auth.isAuthenticated, attendanceController.clockIn);
 
-export default router;
+// Clock out
+router.post('/clock-out', auth.isAuthenticated, attendanceController.clockOut);
+
+module.exports = router;
